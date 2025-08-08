@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">MySharingApp</string>
+    <string name="app_subtitle">File Sharing &amp; Location Tracking</string>
+    
+    <!-- Status -->
+    <string name="service_status">Service Status</string>
+    <string name="status_running">Service Status: Running\nLocation tracking and file monitoring active</string>
+    <string name="status_stopped">Service Status: Stopped\nNo monitoring active</string>
+    
+    <!-- Controls -->
+    <string name="sharing_control">Sharing Control</string>
+    <string name="enable_sharing">Enable File Sharing</string>
+    <string name="sharing_description">Monitors files and location in the background. Data is uploaded to Firebase and can be controlled via web interface.</string>
+    
+    <!-- Permissions -->
+    <string name="permissions">Permissions</string>
+    <string name="permissions_description">This app requires location, storage, and background permissions to function properly.</string>
+    <string name="grant_permissions">Grant Permissions</string>
+    <string name="all_permissions_granted">All Permissions Granted</string>
+    
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="app_settings">App Settings</string>
+    
+    <!-- Footer -->
+    <string name="footer_text">MySharingApp v1.0\nBuilt with Firebase &amp; Kotlin</string>
+    
+    <!-- Permission Messages -->
+    <string name="permission_location_title">Location Permission</string>
+    <string name="permission_location_message">This app needs location access to track device position in the background.</string>
+    
+    <string name="permission_storage_title">Storage Permission</string>
+    <string name="permission_storage_message">This app needs storage access to monitor file changes.</string>
+    
+    <string name="permission_background_title">Background Permission</string>
+    <string name="permission_background_message">This app needs background location access to track position when app is not active.</string>
+    
+    <!-- Battery Optimization -->
+    <string name="battery_optimization_title">Battery Optimization</string>
+    <string name="battery_optimization_message">To ensure the app works properly in background, please disable battery optimization.</string>
+    
+    <!-- Storage Management -->
+    <string name="manage_storage_title">Storage Management</string>
+    <string name="manage_storage_message">This app needs access to manage all files to monitor changes across the device.</string>
+    
+    <!-- Notifications -->
+    <string name="notification_channel_name">MySharingApp Service</string>
+    <string name="notification_channel_description">Notifications for background file sharing service</string>
+    <string name="notification_title">MySharingApp</string>
+    <string name="notification_starting">Starting sharing service...</string>
+    <string name="notification_active">Sharing service active</string>
+    <string name="notification_error">Service error occurred</string>
+    
+    <!-- Toast Messages -->
+    <string name="service_started">Sharing service started</string>
+    <string name="service_stopped">Sharing service stopped</string>
+    <string name="permissions_required">All permissions required to start service</string>
+    <string name="permissions_granted">Permissions granted</string>
+    <string name="permissions_denied">Some permissions were denied</string>
+    <string name="battery_settings_unavailable">Unable to open battery settings</string>
+</resources>
