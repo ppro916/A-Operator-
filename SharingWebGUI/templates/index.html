@@ -1,2 +1,35 @@
-<!-- Placeholder index.html -->
-<html><body><h1>Sharing Web GUI</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySharingApp - Dashboard</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to MySharingApp</h1>
+        <p>Manage your devices and data sharing here.</p>
+    </header>
+
+    <section class="devices">
+        <h2>Your Devices</h2>
+        <ul id="deviceList">
+            <!-- List of devices will appear here dynamically -->
+        </ul>
+    </section>
+
+    <section class="location">
+        <h2>Current Device Location</h2>
+        <p id="location">Fetching location...</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 MySharingApp. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../static/app.js"></script>
+</body>
+</html>
