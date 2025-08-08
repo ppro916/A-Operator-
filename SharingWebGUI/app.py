@@ -1,13 +1,17 @@
 # Placeholder Flask app. Replace with the original app.py from Deepseek.
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+
 app = Flask(__name__)
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/stop')
+@app.route('/stop', methods=['GET', 'POST'])
 def stop():
+    if request.method == 'POST':
+        # Stop sharing logic here (e.g., update Firebase or app state)
+        return "Sharing stopped successfully!"  # किंवा redirect करा
     return render_template('stop_sharing.html')
 
 if __name__ == '__main__':
