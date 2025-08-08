@@ -1,28 +1,44 @@
 package com.example.mysharingapp
 
-import com.google.firebase.FirebaseApp
-import com.google.firebase.FirebaseOptions
-import android.content.Context
-import org.json.JSONObject
-import java.io.InputStream
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import java.io.File
 
 object FirebaseUtils {
-    fun initFirebase(context: Context) {
-        // Read credentials.json from assets
-        val inputStream: InputStream = context.assets.open("credentials.json")
-        val size: Int = inputStream.available()
-        val buffer = ByteArray(size)
-        inputStream.read(buffer)
-        inputStream.close()
-        val json = JSONObject(String(buffer, Charsets.UTF_8))
 
-        val options = FirebaseOptions.Builder()
-            .setApiKey(json.getString("firebase_api_key"))
-            .setApplicationId(json.getString("firebase_app_id"))
-            .setProjectId(json.getString("firebase_project_id"))
-            .setStorageBucket(json.getString("firebase_storage_bucket"))
-            .build()
+    private val database = FirebaseDatabase.getInstance()
+    private val storage = FirebaseStorage.getInstance()
 
-        FirebaseApp.initializeApp(context, options)
+    fun uploadFileMetadata(filePath: String) {
+        val file = File(filePath)
+        if (!file.exists()) return
+
+        val metadata = hashMapOf(
+            "name" to file.name,
+            "path" to file.absolutePath,
+            "size" to file.length(),
+            "lastModified" to file.lastModified()
+        )
+
+        database.getReference("files")
+            .push()
+            .setValue(metadata)
     }
-}// Placeholder FirebaseUtils.kt — original implementation should be placed here
+
+    fun uploadFileToStorage(filePath: String, onComplete: (Boolean) -> Unit) {
+        val file = File(filePath)
+        if (!file.exists()) {
+            onComplete(false)
+            return
+        }
+
+        val storageRef = storage.reference.child("uploads/${file.name}")
+        val uploadTask = storageRef.putFile(android.net.Uri.fromFile(file))
+
+        uploadTask.addOnSuccessListener {
+            onComplete(true)
+        }.addOnFailureListener {
+            onComplete(false)
+        }
+    }
+}
